@@ -1,0 +1,13 @@
+variable "virtual_machine_name" {}
+variable "location" {}
+variable "resource_group_name" {}
+variable "nic_id" {}
+variable "virtual_machine_size" {}
+variable "admin_username" {}
+variable "admin_password" {}
+variable "caching" {}
+variable "storage_account_type" {}
+variable "disk_size_gb" {}
+variable "Publisher" {}
+variable "offer" {}
+variable "sku" {}
