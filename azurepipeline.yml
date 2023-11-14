@@ -6,14 +6,17 @@ pool:
 
 steps:
 
-- script: 'terraform init'
-  displayName: 'Terraform Init'
+# - script: 'terraform init'
+#   displayName: 'Terraform Init'
 
-- script: 'terraform validate'
-  displayName: 'Terraform Validate'
+# - script: 'terraform validate'
+#   displayName: 'Terraform Validate'
 
-- script: 'terraform plan -var-file="myproject.dev.tfvars" '
-  displayName: 'Terraform Plan'
+# - script: 'terraform plan -var-file="myproject.dev.tfvars" '
+#   displayName: 'Terraform Plan'
 
-- script: 'terraform apply -var-file="myproject.dev.tfvars" -auto-approve'
-  displayName: 'Terraform Apply'
+# - script: 'terraform apply -var-file="myproject.dev.tfvars" -auto-approve'
+#   displayName: 'Terraform Apply'
+
+- script: 'terraform destroy -var-file="myproject.dev.tfvars" -auto-approve'
+  displayName: 'Terraform destroy'
