@@ -5,11 +5,6 @@ pool:
    name: 'myselfhostedagent'
 
 steps:
-- task: UseDotNet@2
-  inputs:
-    packageType: 'sdk'
-    version: '3.1.x'
-    installationPath: $(Agent.ToolsDirectory)/dotnet
 
 - script: 'terraform init'
   displayName: 'Terraform Init'
