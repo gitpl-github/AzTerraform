@@ -1,4 +1,4 @@
-resource_group_name = "myResourceGroup"
+resource_group_name = "myTFResourceGroup"
 location = "centralindia"
 virtual_network_name = "my-vnet"
 subnet_name = "my-subnet"
