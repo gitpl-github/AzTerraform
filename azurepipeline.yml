@@ -2,7 +2,7 @@ trigger:
   - none  # Specify the branch to trigger the pipeline
 
 pool:
-  name: 'my-self-hosted-agent'
+  vmImage: 'ubuntu-latest'
 
 steps:
 - task: UseDotNet@2
