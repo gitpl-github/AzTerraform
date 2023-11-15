@@ -1,15 +1,18 @@
 parameters:
   - name: resourceGroupName
+    displayName: Resource Group Name
     type: string
-    # default: 'myResourceGroup'
+    default: 'myResourceGroup'
 
   - name: ipAddress
+    displayName: Public IP Address Name
     type: string
-    # default: 'myIp'
+    default: 'myIp'
 
   - name: vmName
+    displayName: Virtual Machine Name
     type: string
-    # default: 'myVM'
+    default: 'myVM'
 
 trigger:
   - none  # Specify the branch to trigger the pipeline
@@ -25,9 +28,9 @@ variables:
 steps:
 
 - script: |
-    echo "Resource Group Name:" $ResourceGroupName
-    echo "IP Address:" $IpAddress
-    echo "VM Name:" $VmName
+    echo "Resource Group Name: $(ResourceGroupName)"
+    echo "IP Address: $(IpAddress)"
+    echo "VM Name: $(VmName)"
   displayName: 'Debug Variables'
 
 # - script: 'terraform init'
