@@ -18,16 +18,16 @@ pool:
    name: 'myselfhostedagent'
 
 variables:
-  resourceGroupName: ${{ parameters.resourceGroupName }}
-  ipAddress: ${{ parameters.ipAddress }}
-  vmName: ${{ parameters.vmName }}
+  ResourceGroupName: ${{ parameters.resourceGroupName }}
+  IpAddress: ${{ parameters.ipAddress }}
+  VmName: ${{ parameters.vmName }}
 
 steps:
 
 - script: |
-    echo "Resource Group Name:" $resourceGroupName
-    echo "IP Address:" $ipAddress
-    echo "VM Name:" $vmName
+    echo "Resource Group Name:" $ResourceGroupName
+    echo "IP Address:" $IpAddress
+    echo "VM Name:" $VmName
   displayName: 'Debug Variables'
 
 # - script: 'terraform init'
