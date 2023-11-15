@@ -33,17 +33,17 @@ steps:
     echo "VM Name: $(VmName)"
   displayName: 'Debug Variables'
 
-# - script: 'terraform init'
-#   displayName: 'Terraform Init'
+- script: 'terraform init'
+  displayName: 'Terraform Init'
 
-# - script: 'terraform validate'
-#   displayName: 'Terraform Validate'
+- script: 'terraform validate'
+  displayName: 'Terraform Validate'
 
-# - script: 'terraform plan -var="resourceGroupName"=$(resource_group_name) -var="ipAddress"=$(public_ip_name) -var="vmName"=$(virtual_machine_name) -var-file="myproject.dev.tfvars" '
-#   displayName: 'Terraform Plan'
+- script: 'terraform plan -var="resource_group_name"=$(ResourceGroupName) -var="public_ip_name"=$(IpAddress) -var="virtual_machine_name"=$(VmName) -var-file="myproject.dev.tfvars" '
+  displayName: 'Terraform Plan'
 
-# - script: 'terraform apply  -var="resourceGroupName"=$(resource_group_name) -var="ipAddress"=$(public_ip_name) -var="vmName"=$(virtual_machine_name) -var-file="myproject.dev.tfvars" '
-#   displayName: 'Terraform Apply'
+- script: 'terraform apply  -var="resource_group_name"=$(ResourceGroupName) -var="public_ip_name"=$(IpAddress) -var="virtual_machine_name"=$(VmName) -var-file="myproject.dev.tfvars" '
+  displayName: 'Terraform Apply'
 
 # - script: 'terraform destroy -var-file="myproject.dev.tfvars" -auto-approve'
 #   displayName: 'Terraform destroy'
