@@ -1,15 +1,15 @@
 parameters:
-- name: resource_group_name
-  displayName: Resource Group Name
-  type: string
+  - name: resourceGroupName
+    type: string
+    default: 'myResourceGroup'
 
-- name: public_ip_name
-  displayName: Public IP Address Name
-  type: string
+  - name: ipAddress
+    type: string
+    default: 'myIp'
 
-- name: virtual_machine_name
-  displayName: Virtual Machine Name
-  type: string
+  - name: vmName
+    type: string
+    default: 'myVM'
 
 trigger:
   - none  # Specify the branch to trigger the pipeline
@@ -25,10 +25,10 @@ steps:
 - script: 'terraform validate'
   displayName: 'Terraform Validate'
 
-- script: 'terraform plan -var="resource_group_name"=$(resource_group_name) -var="public_ip_name"=$(public_ip_name) -var="virtual_machine_name"=$(virtual_machine_name) -var-file="myproject.dev.tfvars" '
+- script: 'terraform plan -var="resource_group_name"=$(resourceGroupName) -var="public_ip_name"=$(ipAddress) -var="virtual_machine_name"=$(vmName) -var-file="myproject.dev.tfvars" '
   displayName: 'Terraform Plan'
 
-- script: 'terraform apply -var="resource_group_name"=$(resource_group_name) -var="public_ip_name"=$(public_ip_name) -var="virtual_machine_name"=$(virtual_machine_name) -var-file="myproject.dev.tfvars" -auto-approve'
+- script: 'terraform apply  -var="resource_group_name"=$(resourceGroupName) -var="public_ip_name"=$(ipAddress) -var="virtual_machine_name"=$(vmName) -var-file="myproject.dev.tfvars" '
   displayName: 'Terraform Apply'
 
 # - script: 'terraform destroy -var-file="myproject.dev.tfvars" -auto-approve'
