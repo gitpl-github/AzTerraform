@@ -17,12 +17,17 @@ trigger:
 pool:
    name: 'myselfhostedagent'
 
+variables:
+  resourceGroupName: ${{ parameters.resourceGroupName }}
+  ipAddress: ${{ parameters.ipAddress }}
+  vmName: ${{ parameters.vmName }}
+
 steps:
 
 - script: |
-    echo "Resource Group Name: $(resourceGroupName)"
-    echo "IP Address: $(ipAddress)"
-    echo "VM Name: $(vmName)"
+    echo "Resource Group Name: $resourceGroupName"
+    echo "IP Address: $ipAddress"
+    echo "VM Name: $vmName"
   displayName: 'Debug Variables'
 
 # - script: 'terraform init'
