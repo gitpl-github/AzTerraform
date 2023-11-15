@@ -111,16 +111,20 @@ The terraform destroy command is used to destroy and delete all resources manage
     Install the Agent:
 
     Link to download agent
+    
     https://vstsagentpackage.azureedge.net/agent/3.230.0/vsts-agent-win-x64-3.230.0.zip
 
     Create directory and unzip agent package in that directory
+
     PS C:\> mkdir agent ; cd agent
     PS C:\agent> Add-Type -AssemblyName System.IO.Compression.FileSystem ; [System.IO.Compression.ZipFile]::ExtractToDirectory("$HOME\Downloads\vsts-agent-win-x64-3.230.0.zip", "$PWD")
 
     Configure the agent
+
     PS C:\agent> .\config.cmd
 
     Run the agent interactively
+
     PS C:\agent> .\run.cmd
 
     In Agent Pools -> Agents
