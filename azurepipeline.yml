@@ -1,3 +1,16 @@
+parameters:
+- name: resourceGroup
+  displayName: Resource Group Name
+  type: string
+
+- name: pub_ip_address
+  displayName: Public IP Address Name
+  type: string
+
+- name: vm_name
+  displayName: Virtual Machine Name
+  type: string
+
 trigger:
   - none  # Specify the branch to trigger the pipeline
 
