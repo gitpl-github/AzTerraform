@@ -1,5 +1,6 @@
 variable "resource_group_name" {
   description = "The name of the Azure Resource Group"
+  default = var.resource_group_name
   type = string
 }
 variable "location" {
@@ -20,10 +21,12 @@ variable "network_interface_name" {
 }
 variable "public_ip_name" {
   description = "The name of the public IP"
+  default = var.public_ip_name
   type = string
 }
 variable "virtual_machine_name" {
     description = "The name of the virtual machine"
+    default = var.virtual_machine_name
     type = string
 }
 variable "virtual_machine_size" {
