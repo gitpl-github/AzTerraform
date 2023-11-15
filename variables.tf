@@ -1,6 +1,6 @@
 variable "resource_group_name" {
   description = "The name of the Azure Resource Group"
-  type = var.resource_group_name
+  type = string
 }
 variable "location" {
   description = "The Azure region where resources will be created"
@@ -20,11 +20,11 @@ variable "network_interface_name" {
 }
 variable "public_ip_name" {
   description = "The name of the public IP"
-  type = var.public_ip_name
+  type = string
 }
 variable "virtual_machine_name" {
     description = "The name of the virtual machine"
-    type = var.virtual_machine_name
+    type = string
 }
 variable "virtual_machine_size" {
   description = "The size for the windows virtual machine"
