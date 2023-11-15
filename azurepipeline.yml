@@ -25,10 +25,10 @@ steps:
 - script: 'terraform validate'
   displayName: 'Terraform Validate'
 
-- script: 'terraform plan -var-file="myproject.dev.tfvars" '
+- script: 'terraform plan -var="resourceGroup"=$(resource_group_name) -var="pub_ip_address"=$(public_ip_name) -var="vm_name"=$(virtual_machine_name) -var-file="myproject.dev.tfvars" '
   displayName: 'Terraform Plan'
 
-- script: 'terraform apply -var-file="myproject.dev.tfvars" -auto-approve'
+- script: 'terraform apply -var="resourceGroup"=$(resource_group_name) -var="pub_ip_address"=$(public_ip_name) -var="vm_name"=$(virtual_machine_name) -var-file="myproject.dev.tfvars" -auto-approve'
   displayName: 'Terraform Apply'
 
 # - script: 'terraform destroy -var-file="myproject.dev.tfvars" -auto-approve'
