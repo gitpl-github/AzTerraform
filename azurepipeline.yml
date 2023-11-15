@@ -20,9 +20,9 @@ pool:
 steps:
 
 - script: |
-    echo "Resource Group Name: parameters.resourceGroupName"
-    echo "IP Address: parameters.ipAddress"
-    echo "VM Name: parameters.vmName"
+    echo "Resource Group Name: $(resourceGroupName)"
+    echo "IP Address: $(ipAddress)"
+    echo "VM Name: $(vmName)"
   displayName: 'Debug Variables'
 
 # - script: 'terraform init'
