@@ -25,9 +25,9 @@ variables:
 steps:
 
 - script: |
-    echo "Resource Group Name: $resourceGroupName"
-    echo "IP Address: $ipAddress"
-    echo "VM Name: $vmName"
+    echo "Resource Group Name:" $resourceGroupName
+    echo "IP Address:" $ipAddress
+    echo "VM Name:" $vmName
   displayName: 'Debug Variables'
 
 # - script: 'terraform init'
