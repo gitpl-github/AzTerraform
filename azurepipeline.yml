@@ -42,7 +42,7 @@ steps:
 - script: 'terraform plan -var="resource_group_name"=$(ResourceGroupName) -var="public_ip_name"=$(IpAddress) -var="virtual_machine_name"=$(VmName) -var-file="myproject.dev.tfvars" '
   displayName: 'Terraform Plan'
 
-- script: 'terraform apply  -var="resource_group_name"=$(ResourceGroupName) -var="public_ip_name"=$(IpAddress) -var="virtual_machine_name"=$(VmName) -var-file="myproject.dev.tfvars" -auto-approve''
+- script: 'terraform apply  -var="resource_group_name"=$(ResourceGroupName) -var="public_ip_name"=$(IpAddress) -var="virtual_machine_name"=$(VmName) -var-file="myproject.dev.tfvars" -auto-approve'
   displayName: 'Terraform Apply'
 
 # - script: 'terraform destroy -var-file="myproject.dev.tfvars" -auto-approve'
