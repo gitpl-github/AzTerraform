@@ -52,3 +52,78 @@ The terraform show command is used to display the current state and attributes o
 7. Destroy your Infrastructure
 #### terraform destroy
 The terraform destroy command is used to destroy and delete all resources managed by Terraform based on your configuration.
+
+# Creating Azure Pipeline for Automaticully deploy resources
+
+## Prerequisites
+1. Azure Resource Manager Service Connection
+2. Self Hosted or Microsoft Hosted Agent
+
+### Azure Resource Manager Service Connection
+-   Sign in to Azure DevOps:
+
+-   Open your Azure DevOps organization (e.g., https://dev.azure.com/yourorganization).
+    Navigate to Project Settings:
+
+-   Click on the gear icon in the lower-left corner to access the project settings.
+    Select Service connections:
+
+-   In the Project Settings, find the "Service connections" option under the "Pipelines" section.
+    Add a new service connection:
+
+-   Click on the "New service connection" button.
+    Choose the service connection type:
+
+-   Select "Azure Resource Manager" from the list of service connection types.
+    Configure the Azure Resource Manager service connection:
+
+-   Fill in the required information:
+    Connection Name: Provide a name for your service connection.
+    Scope Level: Choose the scope level for the service connection (Subscription or Resource Group).
+    Service principal client ID: This is the client ID of the service principal you create in Azure AD.
+    Service principal key: This is the secret key associated with the service principal.
+    Tenant ID: The Azure AD Tenant ID.
+    Subscription ID: The ID of your Azure subscription.
+    Authorize the service connection:
+
+-   Click the "Authorize" button to sign in to Azure and authorize the service connection to access your Azure subscription.
+    Verify and save the service connection:
+
+-   After authorization, review the details and click the "Save" button.
+    Grant permissions in Azure:
+
+-   Depending on the scope level you selected, you might need to grant the necessary permissions in Azure for the service connection.
+    Test the service connection:
+
+-   After saving, you can click the "Verify" button to test the service connection.
+
+### Self Hosted Agent
+-   Navigate to Project Settings:
+
+-   In your Azure DevOps project, go to "Project Settings."
+    Select Agent Pools:
+
+-   Under "Pipelines," select "Agent pools."
+    Add pool Agent to link = new -> Self Hosted -> Give Name - Create
+    
+-   Download the Agent Package:
+    In the Agent Pools page, select the agent pool where you want to add the agent. Click on "New agent" to download the agent package.
+    Install the Agent:
+
+    Link to download agent
+    https://vstsagentpackage.azureedge.net/agent/3.230.0/vsts-agent-win-x64-3.230.0.zip
+
+    Create directory and unzip agent package in that directory
+    PS C:\> mkdir agent ; cd agent
+    PS C:\agent> Add-Type -AssemblyName System.IO.Compression.FileSystem ; [System.IO.Compression.ZipFile]::ExtractToDirectory("$HOME\Downloads\vsts-agent-win-x64-3.230.0.zip", "$PWD")
+
+    Configure the agent
+    PS C:\agent> .\config.cmd
+
+    Run the agent interactively
+    PS C:\agent> .\run.cmd
+
+    In Agent Pools -> Agents
+    You will see Agent online which we have configured now
+
+-   Now you are ready to run pipeline from self hosted agent
