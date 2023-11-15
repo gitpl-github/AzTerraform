@@ -2,17 +2,14 @@ parameters:
   - name: resourceGroupName
     displayName: Resource Group Name
     type: string
-    default: 'myResourceGroup'
 
   - name: ipAddress
     displayName: Public IP Address Name
     type: string
-    default: 'myIp'
 
   - name: vmName
     displayName: Virtual Machine Name
-    type: string
-    default: 'myVM'
+    type: string   
 
 trigger:
   - none  # Specify the branch to trigger the pipeline
@@ -27,23 +24,17 @@ variables:
 
 steps:
 
-- script: |
-    echo "Resource Group Name: $(ResourceGroupName)"
-    echo "IP Address: $(IpAddress)"
-    echo "VM Name: $(VmName)"
-  displayName: 'Debug Variables'
-
 - script: 'terraform init'
   displayName: 'Terraform Init'
 
-# - script: 'terraform validate'
-#   displayName: 'Terraform Validate'
+- script: 'terraform validate'
+  displayName: 'Terraform Validate'
 
-# - script: 'terraform plan -var="resource_group_name"=$(ResourceGroupName) -var="public_ip_name"=$(IpAddress) -var="virtual_machine_name"=$(VmName) -var-file="myproject.dev.tfvars" '
-#   displayName: 'Terraform Plan'
+- script: 'terraform plan -var="resource_group_name"=$(ResourceGroupName) -var="public_ip_name"=$(IpAddress) -var="virtual_machine_name"=$(VmName) -var-file="myproject.dev.tfvars" '
+  displayName: 'Terraform Plan'
 
-# - script: 'terraform apply  -var="resource_group_name"=$(ResourceGroupName) -var="public_ip_name"=$(IpAddress) -var="virtual_machine_name"=$(VmName) -var-file="myproject.dev.tfvars" -auto-approve'
-#   displayName: 'Terraform Apply'
+- script: 'terraform apply  -var="resource_group_name"=$(ResourceGroupName) -var="public_ip_name"=$(IpAddress) -var="virtual_machine_name"=$(VmName) -var-file="myproject.dev.tfvars" -auto-approve'
+  displayName: 'Terraform Apply'
 
-- script: 'terraform destroy  -var="resource_group_name"=$(ResourceGroupName) -var="public_ip_name"=$(IpAddress) -var="virtual_machine_name"=$(VmName) -var-file="myproject.dev.tfvars" -auto-approve'
-  displayName: 'Terraform destroy'
+# - script: 'terraform destroy  -var="resource_group_name"=$(ResourceGroupName) -var="public_ip_name"=$(IpAddress) -var="virtual_machine_name"=$(VmName) -var-file="myproject.dev.tfvars" -auto-approve'
+#   displayName: 'Terraform destroy'
