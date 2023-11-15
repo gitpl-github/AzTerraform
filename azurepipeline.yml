@@ -1,13 +1,13 @@
 parameters:
-- name: resourceGroup
+- name: resource_group_name
   displayName: Resource Group Name
   type: string
 
-- name: pub_ip_address
+- name: public_ip_name
   displayName: Public IP Address Name
   type: string
 
-- name: vm_name
+- name: virtual_machine_name
   displayName: Virtual Machine Name
   type: string
 
@@ -25,10 +25,10 @@ steps:
 - script: 'terraform validate'
   displayName: 'Terraform Validate'
 
-- script: 'terraform plan -var="resourceGroup"=$(resource_group_name) -var="pub_ip_address"=$(public_ip_name) -var="vm_name"=$(virtual_machine_name) -var-file="myproject.dev.tfvars" '
+- script: 'terraform plan -var="resource_group_name"=$(resource_group_name) -var="public_ip_name"=$(public_ip_name) -var="virtual_machine_name"=$(virtual_machine_name) -var-file="myproject.dev.tfvars" '
   displayName: 'Terraform Plan'
 
-- script: 'terraform apply -var="resourceGroup"=$(resource_group_name) -var="pub_ip_address"=$(public_ip_name) -var="vm_name"=$(virtual_machine_name) -var-file="myproject.dev.tfvars" -auto-approve'
+- script: 'terraform apply -var="resource_group_name"=$(resource_group_name) -var="public_ip_name"=$(public_ip_name) -var="virtual_machine_name"=$(virtual_machine_name) -var-file="myproject.dev.tfvars" -auto-approve'
   displayName: 'Terraform Apply'
 
 # - script: 'terraform destroy -var-file="myproject.dev.tfvars" -auto-approve'
