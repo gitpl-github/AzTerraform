@@ -15,7 +15,7 @@ trigger:
   - none  # Specify the branch to trigger the pipeline
 
 pool:
-   name: 'myselfhostedagent'
+   name: 'windows-latest'
 
 variables:
   ResourceGroupName: ${{ parameters.resourceGroupName }}
