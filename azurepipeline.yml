@@ -15,7 +15,7 @@ trigger:
   - none  # Specify the branch to trigger the pipeline
 
 pool:
-   name: 'windows-latest'
+   name: 'Azure Pipelines'
 
 variables:
   ResourceGroupName: ${{ parameters.resourceGroupName }}
