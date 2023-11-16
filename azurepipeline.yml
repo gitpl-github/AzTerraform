@@ -15,7 +15,7 @@ trigger:
   - none  # Specify the branch to trigger the pipeline
 
 pool:
-   name: 'Azure Pipelines'
+   name: 'myselfhostedagent'
 
 variables:
   ResourceGroupName: ${{ parameters.resourceGroupName }}
