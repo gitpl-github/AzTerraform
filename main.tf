@@ -2,7 +2,7 @@ terraform {
   backend "azurerm" {
     resource_group_name   = "tf-state-rg"
     storage_account_name   = "mytfstatestorageaccount"
-    container_name         = "mytfstatecontainer"
+    container_name         = "tf-state-container"
     key                    = "myproject/dev/statefile.tfstate"
     sas_token              = "?sv=2022-11-02&ss=bfqt&srt=sco&sp=rwdlacupiytfx&se=2023-11-30T16:09:23Z&st=2023-11-14T08:09:23Z&spr=https&sig=whEG8aCWr8Rz31Ae6eNh1ITvIKFlsP1wexgYcDyTtcM%3D"
   }
