@@ -53,6 +53,9 @@ The terraform show command is used to display the current state and attributes o
 #### terraform destroy
 The terraform destroy command is used to destroy and delete all resources managed by Terraform based on your configuration.
 
+### terraform destroy -target=resource_type.resource_name
+To destroy only one resource from our infrastructure 
+
 # Creating Azure Pipeline for Automaticully deploy resources
 
 ## Prerequisites
